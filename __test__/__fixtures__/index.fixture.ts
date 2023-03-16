@@ -1,9 +1,9 @@
-type IFixture = {
+type TFixture = {
   value: [number, number, number];
   expectedValue: number[];
 };
 
-const fixture: IFixture[] = [
+const fixture: TFixture[] = [
   {
     value: [1, 0, 1],
     expectedValue: [],
