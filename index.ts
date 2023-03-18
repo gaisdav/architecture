@@ -1,7 +1,21 @@
+import { firstCoefficientError, wrongTypeError } from "./constants";
+
 class QuadraticEquation {
+  private static isNotNumberType(...args: any[]): boolean {
+    return args.some((item) => typeof item !== "number");
+  }
+
+  private static isNaN(...args: number[]): boolean {
+    return args.some((item) => isNaN(item));
+  }
+
   static solve(a: number, b: number, c: number): number[] {
+    if (this.isNotNumberType(a, b, c) || this.isNaN(a, b, c)) {
+      throw new Error(wrongTypeError);
+    }
+
     if (a === 0) {
-      throw new Error("a must not be zero");
+      throw new Error(firstCoefficientError);
     }
 
     const D = b * b - 4 * a * c;
