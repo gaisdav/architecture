@@ -13,14 +13,6 @@ describe("quadratic equation", () => {
     });
   });
 
-  describe("error cases", () => {
-    it("should be error exception for a === 0", () => {
-      expect(() => QuadraticEquation.solve(0, 2, 1)).toThrow(
-        firstCoefficientError
-      );
-    });
-  });
-
   describe("check non-numeric coefficients", () => {
     wrongFixtures.forEach((caseObj) => {
       it(caseObj.testDescription, () => {
@@ -28,6 +20,14 @@ describe("quadratic equation", () => {
           caseObj.expectedValue
         );
       });
+    });
+  });
+
+  describe("other error cases", () => {
+    it("should be error exception for a === 0", () => {
+      expect(() => QuadraticEquation.solve(0, 2, 1)).toThrow(
+        firstCoefficientError
+      );
     });
   });
 });
