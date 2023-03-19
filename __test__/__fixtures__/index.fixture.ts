@@ -1,4 +1,4 @@
-import { wrongTypeError } from "../../constants";
+import { firstCoefficientError, wrongTypeError } from "../../constants";
 
 type TCorrectFixture = {
   testDescription: string;
@@ -16,11 +16,6 @@ const correctFixtures: TCorrectFixture[] = [
     testDescription: "discriminant more than zero",
     value: [1, 0, -1],
     expectedValue: [1, -1],
-  },
-  {
-    testDescription: "discriminant more than zero (a === 0.1e-18)",
-    value: [0.1e-18, 2, 1],
-    expectedValue: [0, -20000000000000000000],
   },
   {
     testDescription: "discriminant equal to zero",
@@ -55,6 +50,21 @@ const wrongFixtures: TWrongFixture[] = [
     testDescription: "should be error for object type number coefficient",
     value: [1, {}, 1],
     expectedValue: wrongTypeError,
+  },
+  {
+    testDescription: "should be error exception for a === 0",
+    value: [0, 2, 1],
+    expectedValue: firstCoefficientError,
+  },
+  {
+    testDescription: "should be error for a === 0.0",
+    value: [0.0, 2, 1],
+    expectedValue: firstCoefficientError,
+  },
+  {
+    testDescription: "should be error for a === 0.1e-18",
+    value: [0.1e-18, 2, 1],
+    expectedValue: firstCoefficientError,
   },
 ];
 

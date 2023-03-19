@@ -14,7 +14,7 @@ class QuadraticEquation {
       throw new Error(wrongTypeError);
     }
 
-    if (a === 0) {
+    if (a < Number.EPSILON) {
       throw new Error(firstCoefficientError);
     }
 
@@ -24,7 +24,7 @@ class QuadraticEquation {
       return [];
     }
 
-    if (D > 0) {
+    if (D > Number.EPSILON) {
       const x1 = (-b + Math.sqrt(D)) / (2 * a);
       const x2 = (-b - Math.sqrt(D)) / (2 * a);
 

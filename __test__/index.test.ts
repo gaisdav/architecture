@@ -1,6 +1,5 @@
 import { QuadraticEquation } from "../index";
 import { wrongFixtures, correctFixtures } from "./__fixtures__/index.fixture";
-import { firstCoefficientError } from "../constants";
 
 describe("quadratic equation", () => {
   describe("success cases", () => {
@@ -13,27 +12,13 @@ describe("quadratic equation", () => {
     });
   });
 
-  describe("check non-numeric coefficients", () => {
+  describe("error cases", () => {
     wrongFixtures.forEach((caseObj) => {
       it(caseObj.testDescription, () => {
         expect(() => QuadraticEquation.solve(...caseObj.value)).toThrow(
           caseObj.expectedValue
         );
       });
-    });
-  });
-
-  describe("other error cases", () => {
-    it("should be error exception for a === 0", () => {
-      expect(() => QuadraticEquation.solve(0, 2, 1)).toThrow(
-        firstCoefficientError
-      );
-    });
-
-    it("should be error exception for a === 0.0", () => {
-      expect(() => QuadraticEquation.solve(0.0, 2, 1)).toThrow(
-        firstCoefficientError
-      );
     });
   });
 });
