@@ -29,5 +29,11 @@ describe("quadratic equation", () => {
         firstCoefficientError
       );
     });
+
+    it("should be error exception for a === 0.0", () => {
+      expect(() => QuadraticEquation.solve(0.0, 2, 1)).toThrow(
+        firstCoefficientError
+      );
+    });
   });
 });

@@ -18,6 +18,11 @@ const correctFixtures: TCorrectFixture[] = [
     expectedValue: [1, -1],
   },
   {
+    testDescription: "discriminant more than zero (a === 0.1e-18)",
+    value: [0.1e-18, 2, 1],
+    expectedValue: [0, -20000000000000000000],
+  },
+  {
     testDescription: "discriminant equal to zero",
     value: [1, 2, 1],
     expectedValue: [-1],
