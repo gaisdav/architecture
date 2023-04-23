@@ -4,7 +4,8 @@
   "description": "Архитектура и шаблоны проектирования (Otus)",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "test-watch": "npm run test -- --watch"
   },
   "keywords": [],
   "author": "",
