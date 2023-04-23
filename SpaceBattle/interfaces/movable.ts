@@ -1,4 +1,4 @@
-import { Vector } from "../entities";
+import { Vector } from "../helpers";
 
 interface IMovable {
   getPosition(): Vector;

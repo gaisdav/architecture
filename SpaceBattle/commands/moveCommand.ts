@@ -1,7 +1,7 @@
 import { IMovable } from "../interfaces";
-import { Vector } from "./vector";
+import { Vector } from "../helpers";
 
-class Move {
+class MoveCommand {
   private m: IMovable;
 
   constructor(m: IMovable) {
@@ -13,4 +13,4 @@ class Move {
   }
 }
 
-export { Move };
+export { MoveCommand };

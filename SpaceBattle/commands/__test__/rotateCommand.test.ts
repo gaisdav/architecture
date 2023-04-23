@@ -1,7 +1,7 @@
 import { IRotatable } from "../../interfaces";
-import { Rotate } from "../rotate";
+import { RotateCommand } from "../rotateCommand";
 
-describe("Rotate class", () => {
+describe("RotateCommand", () => {
   it("should has correct direction as 300, after updating from 0 to 90 degree with angular velocity as 60", () => {
     const mockObj = {
       direction: 30,
@@ -17,7 +17,7 @@ describe("Rotate class", () => {
         mockObj.direction = newD;
       },
     };
-    const rotate = new Rotate(Rotatable);
+    const rotate = new RotateCommand(Rotatable);
     rotate.execute();
     const direction = Rotatable.getDirection();
 
@@ -38,7 +38,7 @@ describe("Rotate class", () => {
         mockObj.direction = newD;
       },
     };
-    const rotate = new Rotate(Rotatable);
+    const rotate = new RotateCommand(Rotatable);
     rotate.execute();
     const direction = Rotatable.getDirection();
 
@@ -62,7 +62,7 @@ describe("Rotate class", () => {
         mockObj.direction = newD;
       },
     };
-    const rotate = new Rotate(Rotatable);
+    const rotate = new RotateCommand(Rotatable);
 
     expect(() => {
       rotate.execute();

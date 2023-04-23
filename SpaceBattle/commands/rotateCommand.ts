@@ -1,6 +1,6 @@
 import { IRotatable } from "../interfaces";
 
-class Rotate {
+class RotateCommand {
   private r: IRotatable;
 
   constructor(r: IRotatable) {
@@ -15,4 +15,4 @@ class Rotate {
   }
 }
 
-export { Rotate };
+export { RotateCommand };

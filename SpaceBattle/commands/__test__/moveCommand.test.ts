@@ -1,8 +1,8 @@
 import { IMovable } from "../../interfaces";
-import { Vector } from "../vector";
-import { Move } from "../move";
+import { MoveCommand } from "../moveCommand";
+import { Vector } from "../../helpers";
 
-describe("Move class", () => {
+describe("MoveCommand", () => {
   it("should has correct coordinates as 5,8 after updating them from 12,5 with velocity -7,3", () => {
     const mockObj = {
       position: new Vector(12, 5),
@@ -15,7 +15,7 @@ describe("Move class", () => {
         mockObj.position = newV;
       },
     };
-    const move = new Move(MovableAdapter);
+    const move = new MoveCommand(MovableAdapter);
     move.execute();
     const coords = MovableAdapter.getPosition().getCoords();
     expect(coords).toEqual([5, 8]);
@@ -39,7 +39,7 @@ describe("Move class", () => {
       },
     };
 
-    const move = new Move(MovableAdapter);
+    const move = new MoveCommand(MovableAdapter);
 
     expect(() => {
       move.execute();
@@ -62,7 +62,7 @@ describe("Move class", () => {
       },
     };
 
-    const move = new Move(MovableAdapter);
+    const move = new MoveCommand(MovableAdapter);
     expect(() => {
       move.execute();
     }).toThrow(errorMessage);
@@ -82,7 +82,7 @@ describe("Move class", () => {
       },
     };
 
-    const move = new Move(MovableAdapter);
+    const move = new MoveCommand(MovableAdapter);
 
     expect(() => {
       move.execute();
