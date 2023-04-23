@@ -1,6 +1,6 @@
-import { IRotatable } from "../interfaces";
+import { ICommand, IRotatable } from "../interfaces";
 
-class RotateCommand {
+class RotateCommand implements ICommand {
   private r: IRotatable;
 
   constructor(r: IRotatable) {

@@ -1,7 +1,7 @@
-import { IMovable } from "../interfaces";
+import { ICommand, IMovable } from "../interfaces";
 import { Vector } from "../helpers";
 
-class MoveCommand {
+class MoveCommand implements ICommand {
   private m: IMovable;
 
   constructor(m: IMovable) {
